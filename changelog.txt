@@ -1,4 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2021-03-21
+  Changes:
+    - HUD Combinators have signal filtering functionality, this avoids long chains of arithmetic combinators to get the right signal display!
+    - The HUD now has buttons for each HUD Combinator, which means you can now edit from anywhere, zoom to and hide each HUD Combinator!
+    - You can now search and filter for HUD Combinators straight from the HUD itself (Thanks @Taurondir for the idea!)
+    - Greatly improved the size and position control of the HUD!
+    - Added more helpful messages in the HUD based on the HUD Combinator state!
+    - Player specific settings are no longer accessible in the Mod settings but are now configurable from the Circuit HUD directly (Thanks @AngrySlipper for the idea!)
+    - Added hotkeys for Toggeling the HUD (default: "CONTROL + SHIFT + S") and opening the settings window (default: "CONTROL + ALT + S")
+  Bugfixes:
+    - Fixed the collapsed button going off-screen when UI Scale is above 100% 
+    - The HUD now automatically expands when changing the HUD position in the settings
+    - Fixed many HUD glitches, should be much more fluid and stable now with better alignment.
+  Optimisations:
+    - Major refactor, mainly ensuring less methods are stored on the lua global level and that most methods are now in a wrapping object. Also deleted unused methods and empty files.
+    - Simplyfied the HUD size calculation greatly with better results, improving performance greatly!
+---------------------------------------------------------------------------------------------------
 Version: 1.2.1
 Date: 2021-03-09
   Bugfixes:
@@ -12,7 +30,6 @@ Date: 2021-03-09
   Bugfixes:
     - Fixed (most likely) a crash when a setting was changed programmatically by a different mod, this did not include player_index and would cause a crash: https://mods.factorio.com/mod/CircuitHUD-V2/discussion/604748330bd4c069e8a7cb71
     - Fixed (most likely) a save/load issue when working in editor that prevented the scenario from being saved due to a "LuaCustomTable cannot be serialized."
-
   Optimisations:
     - Minor performance improvements on updating the HUD.
     - Replaced all ipairs with pairs and replaced custom array_length function with the factorio native table_size
